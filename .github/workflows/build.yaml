@@ -29,12 +29,8 @@ jobs:
           export PATH=$PATH:/usr/local/go/bin \
           && env GOOS=linux CGO_ENABLED=0 GOARCH=amd64 go build -o resetns \
           && cp resetns resetns_Linux_x86_64 && tar -cvzf resetns_Linux_x86_64.tar.gz resetns && rm -rf resetns \
-          && env GOOS=linux CGO_ENABLED=0 GOARCH=arm64 go build -o resetns \
-          && tar -cvzf resetns_Linux_arm64.tar.gz resetns && cp resetns_Linux_arm64.tar.gz resetns_Linux_aarch64.tar.gz && rm -rf resetns \
           && env GOOS=darwin CGO_ENABLED=0 GOARCH=amd64 go build -o resetns \
           && cp resetns resetns_Darwin_x86_64 && tar -cvzf resetns_Darwin_x86_64.tar.gz resetns && rm -rf resetns \
-          && env GOOS=darwin CGO_ENABLED=0 GOARCH=arm64 go build -o resetns \
-          && tar -cvzf resetns_Darwin_arm64.tar.gz resetns && cp resetns_Darwin_arm64.tar.gz resetns_Darwin_aarch64.tar.gz && rm -rf resetns \
           && env GOOS=windows CGO_ENABLED=0 GOARCH=amd64 go build -o resetns.exe \
           && zip resetns_Windows_x86_64.zip resetns.exe \
       - name: Release
@@ -42,7 +38,6 @@ jobs:
         with:
           tag_name: ${{ env.RELEASE_TAG }}
           files: |
-            checksums.txt
             resetns_Linux_x86_64
             resetns_Linux_x86_64.tar.gz 
             resetns_Darwin_x86_64
