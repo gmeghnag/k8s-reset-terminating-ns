@@ -1,5 +1,6 @@
 ```
-modification of https://github.com/jianz/k8s-reset-terminating-pv
+This tool is a modification of https://github.com/jianz/k8s-reset-terminating-pv
+USE IT WITH CAUTION AT YOUR OWN RISK
 ```
 
 # k8s-reset-terminating-ns
